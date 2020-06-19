@@ -1,10 +1,11 @@
 <?php
 
 require_once '../vendor/autoload.php';
+require '../config.php';
 
-$transport = (new Swift_SmtpTransport('smtp.mail.ru', '465', 'ssl'))
-    ->setUsername('mail@mail.ru')
-    ->setPassword('password');
+$transport = (new Swift_SmtpTransport('', '465', 'ssl'))
+    ->setUsername(SET_USER_NAME)
+    ->setPassword(SET_PASSWORD);
 
 
 $mailer = new Swift_Mailer($transport);
@@ -16,8 +17,8 @@ $message = (new Swift_Message())
     ->setSubject('Swiftmailer is here')
 
     // Set the From address with an associative array
-    ->setFrom(['mail@mail.ru' => 'Name'])
-    ->setTo(['gmail@gmail.com'])
+    ->setFrom([SET_FROM => NAME])
+    ->setTo([SET_TO])
     ->setBody('Here is the message itself')
 
     // And optionally an alternative body
