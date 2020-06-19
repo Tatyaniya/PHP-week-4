@@ -3,7 +3,7 @@
 require_once '../vendor/autoload.php';
 require '../config.php';
 
-$transport = (new Swift_SmtpTransport('', '465', 'ssl'))
+$transport = (new Swift_SmtpTransport(SMTP, PORT, CERTIFICATE))
     ->setUsername(SET_USER_NAME)
     ->setPassword(SET_PASSWORD);
 
